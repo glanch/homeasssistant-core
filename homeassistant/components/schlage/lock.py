@@ -48,6 +48,7 @@ class SchlageLockEntity(SchlageEntity, LockEntity):
         """Update our internal state attributes."""
         self._attr_is_locked = self._lock.is_locked
         self._attr_is_jammed = self._lock.is_jammed
+        self._attr_changed_by = self._lock.last_changed_by()
 
     async def async_lock(self, **kwargs: Any) -> None:
         """Lock the device."""
